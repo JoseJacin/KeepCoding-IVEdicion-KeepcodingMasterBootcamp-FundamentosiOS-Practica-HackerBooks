@@ -13,6 +13,12 @@
 		DFED9F0C1E452428000C1FBB /* HackerBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFED9F0A1E452428000C1FBB /* HackerBooks.xcdatamodeld */; };
 		DFED9F0E1E452428000C1FBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F0D1E452428000C1FBB /* Assets.xcassets */; };
 		DFED9F111E452428000C1FBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F0F1E452428000C1FBB /* LaunchScreen.storyboard */; };
+		DFED9F221E45250F000C1FBB /* HackerBooks-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F1E1E45250F000C1FBB /* HackerBooks-60@2x.png */; };
+		DFED9F231E45250F000C1FBB /* HackerBooks-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F1F1E45250F000C1FBB /* HackerBooks-60@3x.png */; };
+		DFED9F241E45250F000C1FBB /* HackerBooks-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F201E45250F000C1FBB /* HackerBooks-Spotlight-40@2x.png */; };
+		DFED9F251E45250F000C1FBB /* HackerBooks-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F211E45250F000C1FBB /* HackerBooks-Spotlight-40@3x.png */; };
+		DFED9F281E452540000C1FBB /* HackerBooks-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F261E452540000C1FBB /* HackerBooks-Small@2x.png */; };
+		DFED9F291E452540000C1FBB /* HackerBooks-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F271E452540000C1FBB /* HackerBooks-Small@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		DFED9F0D1E452428000C1FBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFED9F101E452428000C1FBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DFED9F121E452428000C1FBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFED9F1E1E45250F000C1FBB /* HackerBooks-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HackerBooks-60@2x.png"; sourceTree = "<group>"; };
+		DFED9F1F1E45250F000C1FBB /* HackerBooks-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HackerBooks-60@3x.png"; sourceTree = "<group>"; };
+		DFED9F201E45250F000C1FBB /* HackerBooks-Spotlight-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HackerBooks-Spotlight-40@2x.png"; sourceTree = "<group>"; };
+		DFED9F211E45250F000C1FBB /* HackerBooks-Spotlight-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HackerBooks-Spotlight-40@3x.png"; sourceTree = "<group>"; };
+		DFED9F261E452540000C1FBB /* HackerBooks-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HackerBooks-Small@2x.png"; sourceTree = "<group>"; };
+		DFED9F271E452540000C1FBB /* HackerBooks-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HackerBooks-Small@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,8 @@
 		DFED9F021E452427000C1FBB /* HackerBooks */ = {
 			isa = PBXGroup;
 			children = (
+				DFED9F191E452440000C1FBB /* App */,
+				DFED9F181E452437000C1FBB /* Frameworks */,
 				DFED9F031E452428000C1FBB /* AppDelegate.swift */,
 				DFED9F051E452428000C1FBB /* ViewController.swift */,
 				DFED9F071E452428000C1FBB /* Main.storyboard */,
@@ -65,6 +79,58 @@
 				DFED9F0A1E452428000C1FBB /* HackerBooks.xcdatamodeld */,
 			);
 			path = HackerBooks;
+			sourceTree = "<group>";
+		};
+		DFED9F181E452437000C1FBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFED9F191E452440000C1FBB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DFED9F1C1E452458000C1FBB /* Models */,
+				DFED9F1B1E452450000C1FBB /* Resources */,
+				DFED9F1A1E452448000C1FBB /* Controllers */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		DFED9F1A1E452448000C1FBB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		DFED9F1B1E452450000C1FBB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DFED9F1D1E4524F3000C1FBB /* Icons */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DFED9F1C1E452458000C1FBB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		DFED9F1D1E4524F3000C1FBB /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				DFED9F1E1E45250F000C1FBB /* HackerBooks-60@2x.png */,
+				DFED9F1F1E45250F000C1FBB /* HackerBooks-60@3x.png */,
+				DFED9F201E45250F000C1FBB /* HackerBooks-Spotlight-40@2x.png */,
+				DFED9F211E45250F000C1FBB /* HackerBooks-Spotlight-40@3x.png */,
+				DFED9F261E452540000C1FBB /* HackerBooks-Small@2x.png */,
+				DFED9F271E452540000C1FBB /* HackerBooks-Small@3x.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,9 +193,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFED9F241E45250F000C1FBB /* HackerBooks-Spotlight-40@2x.png in Resources */,
 				DFED9F111E452428000C1FBB /* LaunchScreen.storyboard in Resources */,
+				DFED9F231E45250F000C1FBB /* HackerBooks-60@3x.png in Resources */,
+				DFED9F221E45250F000C1FBB /* HackerBooks-60@2x.png in Resources */,
 				DFED9F0E1E452428000C1FBB /* Assets.xcassets in Resources */,
+				DFED9F251E45250F000C1FBB /* HackerBooks-Spotlight-40@3x.png in Resources */,
 				DFED9F091E452428000C1FBB /* Main.storyboard in Resources */,
+				DFED9F291E452540000C1FBB /* HackerBooks-Small@3x.png in Resources */,
+				DFED9F281E452540000C1FBB /* HackerBooks-Small@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
