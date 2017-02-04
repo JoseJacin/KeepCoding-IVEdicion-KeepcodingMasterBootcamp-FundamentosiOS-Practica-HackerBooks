@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF21DD7E1E45DB4F002D547C /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD7D1E45DB4F002D547C /* Books.swift */; };
 		DFED9F041E452428000C1FBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED9F031E452428000C1FBB /* AppDelegate.swift */; };
 		DFED9F061E452428000C1FBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED9F051E452428000C1FBB /* ViewController.swift */; };
 		DFED9F091E452428000C1FBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F071E452428000C1FBB /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF21DD7D1E45DB4F002D547C /* Books.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		DFED9F001E452427000C1FBB /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFED9F031E452428000C1FBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFED9F051E452428000C1FBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		DFED9F1C1E452458000C1FBB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DF21DD7D1E45DB4F002D547C /* Books.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF21DD7E1E45DB4F002D547C /* Books.swift in Sources */,
 				DFED9F061E452428000C1FBB /* ViewController.swift in Sources */,
 				DFED9F0C1E452428000C1FBB /* HackerBooks.xcdatamodeld in Sources */,
 				DFED9F041E452428000C1FBB /* AppDelegate.swift in Sources */,
@@ -376,6 +380,7 @@
 				DFED9F171E452428000C1FBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
