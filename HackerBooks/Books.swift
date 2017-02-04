@@ -18,32 +18,46 @@ class Book {
     let title       :   String
     let authors     :   Author
     let tags        :   Tag
-    let image_url   :   URL
-    let pdf_url     :   URL
+    let imageUrl    :   URL?
+    let pdfUrl      :   URL?
     
-    //MARK: - Computed Properties
-    // Actualmente no se han detectado propiedades computadas
+    //MARK: - Computed Properties (propiedades computadas)
+    // Dado que pueden llegar varios elementos tanto de authors como de tags, se unen los elementos en un único string
+    var authorsDescription: String {
+        get {
+            return authors.map({ $0 as String }).joined(separator: ", ")
+        }
+    }
+    
+    var tagsDescription: String {
+        get {
+            return tags.map({ $0 as String }).joined(separator: ", ")
+        }
+    }
     
     //MARK: - Initialization
     // Inicializador designado (Si no se indica que es el de conveniencia, es el designado)
     init(title: String,
          authors: Author,
          tags: Tag,
-         image_url: URL,
-         pdf_url: URL) {
+         imageUrl: URL?,
+         pdfUrl: URL?) {
         
         //Siempre que la variable de instancia se llame igual que el parámetro del Init, se tiene que usar self para diferenciarlos
         self.title = title
         self.authors = authors
         self.tags = tags
-        self.image_url = image_url
-        self.pdf_url = pdf_url
+        self.imageUrl = imageUrl
+        self.pdfUrl = pdfUrl
     }
+    
+    // Inicializador de conveniencia.
+    // No se ha detectado que sean necesarios
     
     //MARK: - Proxies
     // Proxy para igualdad
     func proxyForEquiality() -> String {
-        return "\(title)\(authors)\(tags)\(image_url)\(pdf_url)"
+        return "\(title)\(authors)\(tags)\(imageUrl)\(pdfUrl)"
     }
     
     // Proxy para comparación
@@ -65,5 +79,14 @@ extension Book: Equatable {
 extension Book: Comparable {
     public static func <(lhs: Book, rhs: Book) -> Bool {
         return (lhs.proxyForComparision() < rhs.proxyForComparision())
+    }
+}
+
+// Protocolo de representación textual de la instancia
+extension Book: CustomStringConvertible {
+    public var description: String {
+        get {
+            return "<Book title:\(title) authors:\(authors) tags:\(tags) coverImageUrl:\(imageUrl) pdfUrl:\(pdfUrl)>"
+        }
     }
 }
