@@ -18,8 +18,8 @@ class Book {
     let title       :   String
     let authors     :   Author
     let tags        :   Tag
-    let url_image   :   URL
-    let url_pdf     :   URL
+    let image_url   :   URL
+    let pdf_url     :   URL
     
     //MARK: - Computed Properties
     // Actualmente no se han detectado propiedades computadas
@@ -29,21 +29,21 @@ class Book {
     init(title: String,
          authors: Author,
          tags: Tag,
-         url_image: URL,
-         url_pdf: URL) {
+         image_url: URL,
+         pdf_url: URL) {
         
         //Siempre que la variable de instancia se llame igual que el parámetro del Init, se tiene que usar self para diferenciarlos
         self.title = title
         self.authors = authors
         self.tags = tags
-        self.url_image = url_image
-        self.url_pdf = url_pdf
+        self.image_url = image_url
+        self.pdf_url = pdf_url
     }
     
     //MARK: - Proxies
     // Proxy para igualdad
     func proxyForEquiality() -> String {
-        return "\(title)\(authors)\(tags)\(url_image)\(url_pdf)"
+        return "\(title)\(authors)\(tags)\(image_url)\(pdf_url)"
     }
     
     // Proxy para comparación
