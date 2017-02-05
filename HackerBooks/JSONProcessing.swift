@@ -101,7 +101,7 @@ func getMyDocumentsURL() -> URL {
 // Función que descarga el fichero JSON (si aplica) y lo guarda en Local en el path de Documents
 func downloadAndSaveJSONFile() throws -> Data {
     // Se comprueba si la aplicación se ha ejecutado anteriormente en algún momento mediante la carga del fichero desde NSUserDefaults
-    guard let bookJSONData = UserDefaults.standard.data(forKey: bookJSONDataKey) else {
+    guard let bookJSONData: Data = UserDefaults.standard.data(forKey: bookJSONDataKey) else {
         // No se ha podido obtener el fichero JSON, por lo que se procede a su descarga
         // Se recupera la URL del JSON
         guard let jsonUrl = URL(string: urlFileJSON) else {
@@ -132,29 +132,30 @@ func loadJSONFromSandBox() throws -> [Book] {
         let jsonData = try downloadAndSaveJSONFile()
         
         // Se descarga la información del fichero JSON y se parsea a un array de JSON
-        if let maybeArray = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableLeaves) as? [[String: String]],
-            let array = maybeArray {
-            // Se ha descargado correctamente el fichero a local y se ha transformado el diccionario JSON a Books
-            return array.flatMap({ (dict: [String : String]) -> Book? in
-                guard let title: String = dict["title"],
-                    let authorsString: String = dict["authors"],
-                    let tagsString: String = dict["tags"],
-                    let imageUrlString: String = dict["image_url"],
-                    let pdfUrlString: String = dict["pdf_url"] else {
-                        return nil
-                }
+        guard let maybeArray = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableLeaves) as? [[String: String]],
+              let array = maybeArray else {
+                throw BookError.jsonParsingError
+        }
+        
+        // Se ha descargado correctamente el fichero a local y se ha transformado el diccionario JSON a Books
+        return array.flatMap({ (dict: [String : String]) -> Book? in
+            guard let title: String = dict["title"],
+                  let authorsString: String = dict["authors"],
+                  let tagsString: String = dict["tags"],
+                  let imageUrlString: String = dict["image_url"],
+                  let pdfUrlString: String = dict["pdf_url"] else {
+                    return nil
+            }
                 
-                // Se ha recuperado todo correctamente
-                return Book(title: title,
+            // Se ha recuperado todo correctamente
+            let book = Book(title: title,
                             authors: authorsString,
                             tags: tagsString,
                             imageUrlString: imageUrlString,
                             pdfUrlString: pdfUrlString)
-            })
-        } else {
-            // Error. Parseado del fichero JSON
-            throw BookError.jsonParsingError
-        }
+            
+            return book
+        })
     } catch {
         throw BookError.dataCollectionPointedByURLNotReachable
     }
