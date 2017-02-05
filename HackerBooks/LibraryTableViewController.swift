@@ -12,11 +12,21 @@ class LibraryTableViewController: UITableViewController {
     
     //MARK: - Constants
     let navigationTitle : String = "Hacker Books"
+    let bookIcon : String = "HackerBooks-BookIcon.png"
     let cellId : String = "BookCell"
-    let bookIcon : String = "HackerBooks-BookIcon"
     
     //MARK: - Properties
     var library : Library
+    weak var delegate: LibraryTableViewControllerDelegate? = nil
+    
+    //MARK: - Computed Properties
+    // Propiedad que recupera la URL a la imagen por defecto de la portada del Book
+    var defaultBookImageData: Data {
+        get {
+            let defaultImageUrl = Bundle.main.url(forResource: bookIcon)!
+            return try! Data(contentsOf: defaultImageUrl)
+        }
+    }
     
     //MARK: - Initialization
     init(library: Library) {
@@ -32,11 +42,6 @@ class LibraryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = navigationTitle
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -75,18 +80,52 @@ class LibraryTableViewController: UITableViewController {
         return cell
     }
     
+    // Función que se ejecuta cuando se ha pulsado en una celda
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let selectedBook = library.book(forTag: tag(inSection: indexPath.section), at: indexPath.row) else {
             return
         }
-        let bookController = BookViewController(book: selectedBook)
-        self.navigationController?.pushViewController(bookController, animated: true)
+        delegate?.libraryTableViewController(self, didSelectBook: selectedBook)
     }
-    
     
     //MARK: - Utils
     // Función que recupera el Tag de la sección
     func tag(inSection section: Int) -> Tag {
         return library.tags[section]
+    }
+}
+
+//MARK: - Protocols
+// Protocolo de Delegado - LibraryTableViewControllerDelegate
+protocol LibraryTableViewControllerDelegate: class {
+    func libraryTableViewController(_ sender: LibraryTableViewController, didSelectBook book: Book)
+}
+
+//MARK: - Delegates
+//MARK: LibraryTableViewControllerDelegate
+// Función que se ejecuta cuando en LibraryTableViewController se ha seleccionado una celda
+extension LibraryTableViewController: LibraryTableViewControllerDelegate {
+    func libraryTableViewController(_ sender: LibraryTableViewController, didSelectBook book: Book) {
+        let bookController = BookViewController(book: book)
+        bookController.delegate = self
+        navigationController?.pushViewController(bookController, animated: true)
+    }
+}
+
+//MARK: - BookViewControllerDelegate
+// Función que se ejecuta cuando en BookViewController se ha marcado/desmarcado un Book como Favorito
+extension LibraryTableViewController: BookViewControllerDelegate {
+    func bookDidToggleFavoriteState(book: Book, isNowFavorite: Bool) {
+        // Se comprueba si se ha marcado o desmarcado el Book como Favorito
+        if (isNowFavorite) {
+            // Se añade el Book al Tag Favoritos
+            library.addBookToFavorites(book)
+        } else {
+            // Se elimina el Book del Tag Favoritos
+            library.removeBookFromFavorites(book)
+        }
+        
+        // Se recarga la información de la tabla para que se actualice la sección Favorites
+        self.tableView.reloadData()
     }
 }

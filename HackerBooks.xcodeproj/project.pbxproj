@@ -10,6 +10,12 @@
 		DF1D76B21E474831000947E3 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1D76B01E474831000947E3 /* BookViewController.swift */; };
 		DF1D76B31E474831000947E3 /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76B11E474831000947E3 /* BookViewController.xib */; };
 		DF1D76B51E475989000947E3 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1D76B41E475989000947E3 /* Tag.swift */; };
+		DF1D76BC1E47AE1D000947E3 /* ic_favorite_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76B61E47AE1D000947E3 /* ic_favorite_2x.png */; };
+		DF1D76BD1E47AE1D000947E3 /* ic_favorite_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76B71E47AE1D000947E3 /* ic_favorite_3x.png */; };
+		DF1D76BE1E47AE1D000947E3 /* ic_favorite_border_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76B81E47AE1D000947E3 /* ic_favorite_border_2x.png */; };
+		DF1D76BF1E47AE1D000947E3 /* ic_favorite_border_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76B91E47AE1D000947E3 /* ic_favorite_border_3x.png */; };
+		DF1D76C01E47AE1D000947E3 /* ic_favorite_border.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76BA1E47AE1D000947E3 /* ic_favorite_border.png */; };
+		DF1D76C11E47AE1D000947E3 /* ic_favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76BB1E47AE1D000947E3 /* ic_favorite.png */; };
 		DF21DD7E1E45DB4F002D547C /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD7D1E45DB4F002D547C /* Books.swift */; };
 		DF21DD801E45E0B5002D547C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD7F1E45E0B5002D547C /* Errors.swift */; };
 		DF21DD821E45E23F002D547C /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD811E45E23F002D547C /* JSONProcessing.swift */; };
@@ -31,6 +37,12 @@
 		DF1D76B01E474831000947E3 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		DF1D76B11E474831000947E3 /* BookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookViewController.xib; sourceTree = "<group>"; };
 		DF1D76B41E475989000947E3 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		DF1D76B61E47AE1D000947E3 /* ic_favorite_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite_2x.png; sourceTree = "<group>"; };
+		DF1D76B71E47AE1D000947E3 /* ic_favorite_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite_3x.png; sourceTree = "<group>"; };
+		DF1D76B81E47AE1D000947E3 /* ic_favorite_border_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite_border_2x.png; sourceTree = "<group>"; };
+		DF1D76B91E47AE1D000947E3 /* ic_favorite_border_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite_border_3x.png; sourceTree = "<group>"; };
+		DF1D76BA1E47AE1D000947E3 /* ic_favorite_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite_border.png; sourceTree = "<group>"; };
+		DF1D76BB1E47AE1D000947E3 /* ic_favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite.png; sourceTree = "<group>"; };
 		DF21DD7D1E45DB4F002D547C /* Books.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		DF21DD7F1E45E0B5002D547C /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		DF21DD811E45E23F002D547C /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
@@ -147,6 +159,12 @@
 			isa = PBXGroup;
 			children = (
 				DF21DD941E46498D002D547C /* HackerBooks-BookIcon.png */,
+				DF1D76B61E47AE1D000947E3 /* ic_favorite_2x.png */,
+				DF1D76B71E47AE1D000947E3 /* ic_favorite_3x.png */,
+				DF1D76B81E47AE1D000947E3 /* ic_favorite_border_2x.png */,
+				DF1D76B91E47AE1D000947E3 /* ic_favorite_border_3x.png */,
+				DF1D76BA1E47AE1D000947E3 /* ic_favorite_border.png */,
+				DF1D76BB1E47AE1D000947E3 /* ic_favorite.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -214,7 +232,13 @@
 				DFED9F111E452428000C1FBB /* LaunchScreen.storyboard in Resources */,
 				DF1D76B31E474831000947E3 /* BookViewController.xib in Resources */,
 				DFED9F0E1E452428000C1FBB /* Assets.xcassets in Resources */,
+				DF1D76C01E47AE1D000947E3 /* ic_favorite_border.png in Resources */,
+				DF1D76BC1E47AE1D000947E3 /* ic_favorite_2x.png in Resources */,
+				DF1D76BD1E47AE1D000947E3 /* ic_favorite_3x.png in Resources */,
+				DF1D76BE1E47AE1D000947E3 /* ic_favorite_border_2x.png in Resources */,
+				DF1D76C11E47AE1D000947E3 /* ic_favorite.png in Resources */,
 				DF21DD951E46498D002D547C /* HackerBooks-BookIcon.png in Resources */,
+				DF1D76BF1E47AE1D000947E3 /* ic_favorite_border_3x.png in Resources */,
 				DFED9F091E452428000C1FBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

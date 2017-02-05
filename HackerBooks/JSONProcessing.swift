@@ -154,6 +154,13 @@ func loadJSONFromSandBox() throws -> [Book] {
                             imageUrlString: imageUrlString,
                             pdfUrlString: pdfUrlString)
             
+            // Se recupera de NSUserDefaults si el Book es Favorito o no
+            if UserDefaults.standard.bool(forKey: String(book.hashValue)) {
+                // Se ha encontrado la clave del libro, lo que indica que el libro está marcado como Favorito.
+                // Se añade el Book al Tag de Favoritos
+                book.toggleFavoriteState()
+            }
+            
             return book
         })
     } catch {

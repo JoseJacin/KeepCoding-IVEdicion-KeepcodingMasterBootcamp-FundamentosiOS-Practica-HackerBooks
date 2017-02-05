@@ -21,10 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             // Se descargan los datos
             let library = try Library(books: loadJSONFromSandBox())
-            let libraryController = LibraryTableViewController(library: library)
-            let navigationController = UINavigationController(rootViewController: libraryController)
+            let libraryTableViewController = LibraryTableViewController(library: library)
+            let libraryNavigationController = UINavigationController(rootViewController: libraryTableViewController)
             
-            self.window?.rootViewController = navigationController
+            libraryTableViewController.delegate = libraryTableViewController
+            
+            self.window?.rootViewController = libraryNavigationController
             self.window?.makeKeyAndVisible()
             return true
         } catch {

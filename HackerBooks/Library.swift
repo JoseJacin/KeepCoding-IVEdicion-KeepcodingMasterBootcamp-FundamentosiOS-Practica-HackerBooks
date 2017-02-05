@@ -42,6 +42,10 @@ class Library {
     //MARK: - Initialization
     init(books: [Book]) {
         for book in books {
+            if book.isFavorite {
+                addBookToFavorites(book)
+            }
+            
             for tag in book.tags {
                 self.books.insert(value: book, forKey: tag)
             }
@@ -70,5 +74,16 @@ class Library {
         } else {
             return nil
         }
+    }
+    
+    //MARK: - Favorite Handling
+    // Función que añade el Book al Tag Favorites
+    func addBookToFavorites(_ book: Book) {
+        books.insert(value: book, forKey: Tag.favoriteTag)
+    }
+    
+    // Función que elimina el Book del Tag Favorites
+    func removeBookFromFavorites (_ book: Book) {
+        books.remove(value: book, fromKey: Tag.favoriteTag)
     }
 }

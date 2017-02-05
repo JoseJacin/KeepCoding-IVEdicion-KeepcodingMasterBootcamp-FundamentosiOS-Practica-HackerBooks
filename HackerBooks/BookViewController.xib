@@ -44,7 +44,7 @@
                                     </connections>
                                 </barButtonItem>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="B91-sA-8mz"/>
-                                <barButtonItem title="Favorite" id="enu-qV-OWk" userLabel="Favorite">
+                                <barButtonItem image="ic_favorite_border.png" id="enu-qV-OWk" userLabel="Favorite">
                                     <connections>
                                         <action selector="toggleFavorite:" destination="-1" id="1QQ-jv-ENZ"/>
                                     </connections>
@@ -63,4 +63,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="ic_favorite_border.png" width="24" height="24"/>
+    </resources>
 </document>

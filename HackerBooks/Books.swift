@@ -19,6 +19,7 @@ class Book {
     let tags        :   [Tag]
     let imageUrl    :   URL
     let pdfUrl      :   URL
+    private var favorite : Bool = false
     
     //MARK: - Computed Properties (propiedades computadas)
     // Dado que pueden llegar varios elementos tanto de authors como de tags, se unen los elementos en un único string
@@ -34,13 +35,21 @@ class Book {
         }
     }
     
+    // Propiedad que retorna si el Book es Favorite o no
+    var isFavorite: Bool {
+        get {
+            return favorite
+        }
+    }
+    
     //MARK: - Initialization
     // Inicializador designado (Si no se indica que es el de conveniencia, es el designado)
     init(title: String,
          authors: [Author],
          tags: [Tag],
          imageUrl: URL,
-         pdfUrl: URL) {
+         pdfUrl: URL,
+         isFavorite: Bool) {
         
         //Siempre que la variable de instancia se llame igual que el parámetro del Init, se tiene que usar self para diferenciarlos
         self.title = title
@@ -48,6 +57,24 @@ class Book {
         self.tags = tags
         self.imageUrl = imageUrl
         self.pdfUrl = pdfUrl
+        self.favorite = isFavorite
+    }
+    
+    // Inicializador de conveniencia.
+    // Se utiliza para:
+    // Inicializar el Book con la propiedad de isFavorite a False
+    convenience init(title: String,
+                     authors: [Author],
+                     tags: [Tag],
+                     imageUrl: URL,
+                     pdfUrl: URL) {
+        // Se revisa al inicializador designado
+        self.init(title: title,
+                  authors: authors,
+                  tags: tags,
+                  imageUrl: imageUrl,
+                  pdfUrl: pdfUrl,
+                  isFavorite: false)
     }
     
     // Inicializador de conveniencia.
@@ -72,13 +99,19 @@ class Book {
             fatalError("Error while parsing URL: \(pdfUrlString)")
         }
         
-        // Se revisa al inicializador designado
+        // Se revisa al inicializador de conveniencia
         self.init(title: title,
                   authors: authors.components(separatedBy: ", ").flatMap({ $0 as Author }),
                   tags: tags.components(separatedBy: ", ").flatMap({ Tag(rawValue: $0.capitalized) }),
                   imageUrl: imageUrl,
                   pdfUrl: pdfUrl
         )
+    }
+    
+    //MARK: - Utils
+    // Función palanca que activa/desactiva la propiedad Favorite del Book
+    func toggleFavoriteState() {
+        favorite = !favorite
     }
     
     //MARK: - Proxies
