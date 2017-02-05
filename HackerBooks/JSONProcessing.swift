@@ -71,7 +71,7 @@ func decode(book json: JSONDictionary) throws -> Book {
     // Se ha recuperado todo correctamente
     // Se separan los valores de authors y tags en varios elementos.
     let authors = authorsString.components(separatedBy: ", ").flatMap({ $0 as Author })
-    let tags = tagsString.components(separatedBy: ", ").flatMap({ $0 as Tag })
+    let tags = tagsString.components(separatedBy: ", ").flatMap({ Tag(rawValue: $0.capitalized) })
     
     // Se retorna el Book
     return Book(title: title,

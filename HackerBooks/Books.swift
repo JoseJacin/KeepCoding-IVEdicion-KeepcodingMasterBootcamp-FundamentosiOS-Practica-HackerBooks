@@ -11,15 +11,14 @@ import Foundation
 
 //MARK: - Aliases
 typealias Author = String // Se crea un alias para Author ya que puede darse el caso de que haya varios autores para el mismo libro
-typealias Tag = String // Se crea un alias para Tag ya que puede darse el caso de que haya varios tag para el mismo libro
 
 class Book {
     //MARK: - Stored properties (propiedades de instancia)
     let title       :   String
     let authors     :   [Author]
     let tags        :   [Tag]
-    let imageUrl    :   URL?
-    let pdfUrl      :   URL?
+    let imageUrl    :   URL
+    let pdfUrl      :   URL
     
     //MARK: - Computed Properties (propiedades computadas)
     // Dado que pueden llegar varios elementos tanto de authors como de tags, se unen los elementos en un único string
@@ -31,7 +30,7 @@ class Book {
     
     var tagsDescription: String {
         get {
-            return tags.map({ $0 as String }).joined(separator: ", ")
+            return tags.map({ $0.description as String }).joined(separator: ", ")
         }
     }
     
@@ -40,8 +39,8 @@ class Book {
     init(title: String,
          authors: [Author],
          tags: [Tag],
-         imageUrl: URL?,
-         pdfUrl: URL?) {
+         imageUrl: URL,
+         pdfUrl: URL) {
         
         //Siempre que la variable de instancia se llame igual que el parámetro del Init, se tiene que usar self para diferenciarlos
         self.title = title
@@ -61,16 +60,26 @@ class Book {
                      imageUrlString: String,
                      pdfUrlString: String) {
         
+        // Se parsea la URL de la imagen del Book
+        guard let imageUrl = URL(string: imageUrlString) else {
+            // Error al parsear la URL
+            fatalError("Error while parsing URL: \(imageUrlString)")
+        }
+        
+        // Se parsea la URL del pdf del Book
+        guard let pdfUrl = URL(string: pdfUrlString) else {
+            // Error al parsear la URL
+            fatalError("Error while parsing URL: \(pdfUrlString)")
+        }
+        
         // Se revisa al inicializador designado
         self.init(title: title,
                   authors: authors.components(separatedBy: ", ").flatMap({ $0 as Author }),
-                  tags: tags.components(separatedBy: ", ").flatMap({ $0 as Tag }),
-                  imageUrl: URL(string: imageUrlString),
-                  pdfUrl: URL(string: pdfUrlString)
+                  tags: tags.components(separatedBy: ", ").flatMap({ Tag(rawValue: $0.capitalized) }),
+                  imageUrl: imageUrl,
+                  pdfUrl: pdfUrl
         )
-        
     }
-    
     
     //MARK: - Proxies
     // Proxy para igualdad
