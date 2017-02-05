@@ -44,15 +44,11 @@ class BookViewController: UIViewController {
         syncViewWithBook()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //MARK: - Sync model -> View
     // Función que sincroniza la vista con el modelo, es decir, saca datos del modelo y los mete en la vista
     func syncViewWithBook() {
-        // Se llama a la función que
+        // Se llama a la función que se encarga de mostrar una imagen por defecto como portada mientras se descarga la original
+        syncBookImageData()
         //photoView.image = // En espera de implementar la parte de AsyncData
         title = book.title
     }
@@ -64,6 +60,17 @@ class BookViewController: UIViewController {
     
     // Función palanca que activa/desactiva la propiedad Favorite del Book
     @IBAction func toggleFavorite(_ sender: UIBarButtonItem) {
+    }
+    
+    //MARK: - AsyncData Handling
+    // Función que se encarga de establecer una imagen de portada por defecto mientras se realiza la descarga de la imagen original
+    func syncBookImageData() {
+        // Se descarga en segundo plano la Portada del Book. Mientras tanto, se indica una imagen por defecto
+        bookImageData = AsyncData(url: book.imageUrl, defaultData: try! Data(contentsOf: BookViewController.defaultImage))
+        // Se establece a sí mismo como delegado
+        bookImageData.delegate = self
+        // Se modifica la imagen del Book con la imagen determinada. En un primer momento es la imagen por defecto
+        bookImage.image = UIImage(data: bookImageData.data)
     }
     
     /*
@@ -79,5 +86,19 @@ class BookViewController: UIViewController {
 }
 
 //MARK: - Protocols
+
+
+//MARK: - AsyncDataDelegate
+// Función que actualiza la imagen del Book cuando ésta ya ha sido descargada
+extension BookViewController: AsyncDataDelegate {
+    func asyncData(_ sender: AsyncData, didEndLoadingFrom url: URL) {
+        UIView.transition(with: bookImage,
+                          duration: 0.7,
+                          options: [.transitionCrossDissolve],
+                          animations: {
+                            self.bookImage.image = UIImage(data: sender.data)
+        }, completion: nil)
+    }
+}
 
 //MARK: - LibraryViewControllerDelegate
