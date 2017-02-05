@@ -10,14 +10,14 @@ import UIKit
 import Foundation
 
 //MARK: - Aliases
-typealias Author = [String] // Se crea un alias para Author ya que puede darse el caso de que haya varios autores para el mismo libro
-typealias Tag = [String] // Se crea un alias para Tag ya que puede darse el caso de que haya varios tag para el mismo libro
+typealias Author = String // Se crea un alias para Author ya que puede darse el caso de que haya varios autores para el mismo libro
+typealias Tag = String // Se crea un alias para Tag ya que puede darse el caso de que haya varios tag para el mismo libro
 
 class Book {
     //MARK: - Stored properties (propiedades de instancia)
     let title       :   String
-    let authors     :   Author
-    let tags        :   Tag
+    let authors     :   [Author]
+    let tags        :   [Tag]
     let imageUrl    :   URL?
     let pdfUrl      :   URL?
     
@@ -38,8 +38,8 @@ class Book {
     //MARK: - Initialization
     // Inicializador designado (Si no se indica que es el de conveniencia, es el designado)
     init(title: String,
-         authors: Author,
-         tags: Tag,
+         authors: [Author],
+         tags: [Tag],
          imageUrl: URL?,
          pdfUrl: URL?) {
         
@@ -52,7 +52,25 @@ class Book {
     }
     
     // Inicializador de conveniencia.
-    // No se ha detectado que sean necesarios
+    // Se utiliza para:
+    // Separar en elementos los valores que llegan para authors y tags
+    // Obtener la URL desde un String para la imagen y pdf
+    convenience init(title: String,
+                     authors: String,
+                     tags: String,
+                     imageUrlString: String,
+                     pdfUrlString: String) {
+        
+        // Se revisa al inicializador designado
+        self.init(title: title,
+                  authors: authors.components(separatedBy: ", ").flatMap({ $0 as Author }),
+                  tags: tags.components(separatedBy: ", ").flatMap({ $0 as Tag }),
+                  imageUrl: URL(string: imageUrlString),
+                  pdfUrl: URL(string: pdfUrlString)
+        )
+        
+    }
+    
     
     //MARK: - Proxies
     // Proxy para igualdad
@@ -87,6 +105,15 @@ extension Book: CustomStringConvertible {
     public var description: String {
         get {
             return "<Book title:\(title) authors:\(authors) tags:\(tags) coverImageUrl:\(imageUrl) pdfUrl:\(pdfUrl)>"
+        }
+    }
+}
+
+// 
+extension Book: Hashable {
+    var hashValue: Int {
+        get{
+            return proxyForEquiality().hashValue
         }
     }
 }
