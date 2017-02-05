@@ -33,7 +33,7 @@ typealias JSONDictionary    = [String: JSONObject]
 typealias JSONArray         = [JSONDictionary]
 
 //MARK: - Decodification
-// Función que decodifica un diccionario JSON en un objeto del tipo Books
+// Función que decodifica un diccionario JSON en un objeto del tipo Books. Actualmente no se usa, pero se deja por si se tiene que usar en un futuro desarrollo
 func decode(book json: JSONDictionary) throws -> Book {
     // Se valida el diccionario
     // Se comprueba el campo authors
