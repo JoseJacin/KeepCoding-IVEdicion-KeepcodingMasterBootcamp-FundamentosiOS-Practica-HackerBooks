@@ -24,6 +24,7 @@ import Foundation
 //MARK: - Constants
 let urlFileJSON : String = "https://t.co/K9ziV0z3SJ"
 let nameFileJSON = "books_readable.json"
+let bookJSONDataKey = "BookJSONDataKey"
 
 //MARK: - Aliases
 // El protocolo AnyObject representa cualquier objeto que sea compatible con Objective C.
@@ -50,7 +51,7 @@ func decode(book json: JSONDictionary) throws -> Book {
     
     // Se comprueba el campo pdf_url
     guard let pdfURLString = json["pdf_url"] as? String,
-        let pdfUrl = URL(string: pdfURLString) else {
+          let pdfUrl = URL(string: pdfURLString) else {
             // Error. El recurso apuntado por el campo image_url no está accesible
             throw BookError.resourcePointedByURLNotReachable
     }
@@ -69,8 +70,8 @@ func decode(book json: JSONDictionary) throws -> Book {
     
     // Se ha recuperado todo correctamente
     // Se separan los valores de authors y tags en varios elementos.
-    let authors = authorsString.components(separatedBy: ", ").flatMap({ [$0] as Author })
-    let tags = tagsString.components(separatedBy: ", ").flatMap({ [$0] as Tag })
+    let authors = authorsString.components(separatedBy: ", ").flatMap({ $0 as Author })
+    let tags = tagsString.components(separatedBy: ", ").flatMap({ $0 as Tag })
     
     // Se retorna el Book
     return Book(title: title,
@@ -97,49 +98,64 @@ func getMyDocumentsURL() -> URL {
 }
 
 //MARK: - Download JSON
-// Función que descarga un fichero JSON y lo almacena en Local en el path de Documents
-func downloadAndSaveJSONFile() throws {
-    // Se recupera la URL del JSON
-    guard let jsonUrl = URL(string: urlFileJSON) else {
-        fatalError("Error in book collection URL") //BookError.wrongURLFormatForJSONResource
+// Función que descarga el fichero JSON (si aplica) y lo guarda en Local en el path de Documents
+func downloadAndSaveJSONFile() throws -> Data {
+    // Se comprueba si la aplicación se ha ejecutado anteriormente en algún momento mediante la carga del fichero desde NSUserDefaults
+    guard let bookJSONData = UserDefaults.standard.data(forKey: bookJSONDataKey) else {
+        // No se ha podido obtener el fichero JSON, por lo que se procede a su descarga
+        // Se recupera la URL del JSON
+        guard let jsonUrl = URL(string: urlFileJSON) else {
+            throw BookError.wrongURLFormatForJSONResource
+        }
+        
+        // Se recupera el JSON referenciado por la URL
+        guard let jsonDownloadedData = try? Data(contentsOf: jsonUrl) else {
+            throw BookError.dataCollectionPointedByURLNotReachable
+        }
+        
+        // Se almacena el fichero JSON en NSUserDefaults
+        UserDefaults.standard.set(jsonDownloadedData, forKey: bookJSONDataKey)
+        
+        // Se retorna el fichero JSON
+        return jsonDownloadedData
     }
     
-    // Se recupera el JSON referenciado por la URL
-    guard let jsonDownloadedData = try? Data(contentsOf: jsonUrl) else {
-        fatalError("Error in book collection endpoint") //BookError.dataCollectionPointedByURLNotReachable
-    }
-    
-    // Se obtiene la URL del path de Documents
-    //let pathDocuments = getMyDocumentsURL()
-    
-    // Se crea un fichero en el path de Documents
-    let fileJSON: URL = URL(fileURLWithPath: nameFileJSON, relativeTo: getMyDocumentsURL())
-    
-    // Se almacena la información del JSON en el fichero creado en el path de documents
-    let fileManager = FileManager.default
-    let created = fileManager.createFile(atPath: fileJSON.path, contents: jsonDownloadedData, attributes: nil)
-    
-    print(created)
-    
+    // Se ha podido obtener el fichero desde NSUserDefaults
+    return bookJSONData
 }
 
 //MARK: - Loading JSON from local file (SandBox)
 // Función que carga un fichero en local y retorna un array de JSON
-func loadJSONFromSandBox() throws -> JSONArray {
-    // Se obtiene la URL del path de Documents
-    //let pathDocuments = getMyDocumentsURL()
-    
-    // Se obtiene la URL del fichero JSON
-    let fileURL = getMyDocumentsURL().appendingPathComponent(nameFileJSON)
-    
-    // Se descarga la información del fichero JSON y se parsea a un array de JSON
-    if let data = try? Data(contentsOf: fileURL),
-       let maybeArray = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? JSONArray,
-       let array = maybeArray {
-        // Se ha descargado correctamente el fichero a local y se ha transformado el diccionario JSON
-        return array
-    } else {
-        // Error. El parseado del JSON ha fallado
-        throw BookError.jsonParsingError
+func loadJSONFromSandBox() throws -> [Book] {
+    do {
+        // Se carga el fichero desde NSUserDefauls
+        let jsonData = try downloadAndSaveJSONFile()
+        
+        // Se descarga la información del fichero JSON y se parsea a un array de JSON
+        if let maybeArray = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableLeaves) as? [[String: String]],
+            let array = maybeArray {
+            // Se ha descargado correctamente el fichero a local y se ha transformado el diccionario JSON a Books
+            return array.flatMap({ (dict: [String : String]) -> Book? in
+                guard let title: String = dict["title"],
+                    let authorsString: String = dict["authors"],
+                    let tagsString: String = dict["tags"],
+                    let imageUrlString: String = dict["image_url"],
+                    let pdfUrlString: String = dict["pdf_url"] else {
+                        return nil
+                }
+                
+                // Se ha recuperado todo correctamente
+                return Book(title: title,
+                            authors: authorsString,
+                            tags: tagsString,
+                            imageUrlString: imageUrlString,
+                            pdfUrlString: pdfUrlString)
+            })
+        } else {
+            // Error. Parseado del fichero JSON
+            throw BookError.jsonParsingError
+        }
+    } catch {
+        throw BookError.dataCollectionPointedByURLNotReachable
     }
 }
