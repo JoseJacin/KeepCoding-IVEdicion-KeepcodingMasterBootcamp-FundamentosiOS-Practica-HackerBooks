@@ -69,7 +69,6 @@ extension Tag: Comparable {
         }
         
         return lhs.rawValue < rhs.rawValue
-        
     }
 }
 
