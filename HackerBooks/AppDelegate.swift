@@ -9,15 +9,29 @@
 import UIKit
 import CoreData
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        do {
+            // Se descargan los datos
+            let library = try Library(books: loadJSONFromSandBox())
+            let libraryController = LibraryTableViewController(library: library)
+            let navigationController = UINavigationController(rootViewController: libraryController)
+            
+            self.window?.rootViewController = navigationController
+            self.window?.makeKeyAndVisible()
+            return true
+        } catch {
+            fatalError("Error in book collection endpoint")
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF1D76B21E474831000947E3 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1D76B01E474831000947E3 /* BookViewController.swift */; };
+		DF1D76B31E474831000947E3 /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76B11E474831000947E3 /* BookViewController.xib */; };
+		DF1D76B51E475989000947E3 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1D76B41E475989000947E3 /* Tag.swift */; };
 		DF21DD7E1E45DB4F002D547C /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD7D1E45DB4F002D547C /* Books.swift */; };
 		DF21DD801E45E0B5002D547C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD7F1E45E0B5002D547C /* Errors.swift */; };
 		DF21DD821E45E23F002D547C /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD811E45E23F002D547C /* JSONProcessing.swift */; };
 		DF21DD841E45E9CE002D547C /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD831E45E9CE002D547C /* FoundationExtensions.swift */; };
+		DF21DD871E460E73002D547C /* AsyncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD851E460E73002D547C /* AsyncData.swift */; };
+		DF21DD881E460E73002D547C /* MultiDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD861E460E73002D547C /* MultiDictionary.swift */; };
+		DF21DD8A1E460F8D002D547C /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD891E460F8D002D547C /* Library.swift */; };
+		DF21DD901E464312002D547C /* LibraryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD8E1E464312002D547C /* LibraryTableViewController.swift */; };
+		DF21DD951E46498D002D547C /* HackerBooks-BookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF21DD941E46498D002D547C /* HackerBooks-BookIcon.png */; };
 		DFED9F041E452428000C1FBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED9F031E452428000C1FBB /* AppDelegate.swift */; };
 		DFED9F061E452428000C1FBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED9F051E452428000C1FBB /* ViewController.swift */; };
 		DFED9F091E452428000C1FBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F071E452428000C1FBB /* Main.storyboard */; };
@@ -26,10 +34,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF1D76B01E474831000947E3 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		DF1D76B11E474831000947E3 /* BookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookViewController.xib; sourceTree = "<group>"; };
+		DF1D76B41E475989000947E3 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		DF21DD7D1E45DB4F002D547C /* Books.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		DF21DD7F1E45E0B5002D547C /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		DF21DD811E45E23F002D547C /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
 		DF21DD831E45E9CE002D547C /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
+		DF21DD851E460E73002D547C /* AsyncData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncData.swift; sourceTree = "<group>"; };
+		DF21DD861E460E73002D547C /* MultiDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiDictionary.swift; sourceTree = "<group>"; };
+		DF21DD891E460F8D002D547C /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		DF21DD8E1E464312002D547C /* LibraryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewController.swift; sourceTree = "<group>"; };
+		DF21DD941E46498D002D547C /* HackerBooks-BookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HackerBooks-BookIcon.png"; sourceTree = "<group>"; };
 		DFED9F001E452427000C1FBB /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFED9F031E452428000C1FBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFED9F051E452428000C1FBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +92,7 @@
 		DFED9F021E452427000C1FBB /* HackerBooks */ = {
 			isa = PBXGroup;
 			children = (
+				DFED9F181E452437000C1FBB /* Frameworks */,
 				DFED9F191E452440000C1FBB /* App */,
 				DFED9F031E452428000C1FBB /* AppDelegate.swift */,
 				DFED9F051E452428000C1FBB /* ViewController.swift */,
@@ -92,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				DF21DD831E45E9CE002D547C /* FoundationExtensions.swift */,
+				DF21DD851E460E73002D547C /* AsyncData.swift */,
+				DF21DD861E460E73002D547C /* MultiDictionary.swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,10 +118,9 @@
 		DFED9F191E452440000C1FBB /* App */ = {
 			isa = PBXGroup;
 			children = (
-				DFED9F181E452437000C1FBB /* Frameworks */,
+				DFED9F1A1E452448000C1FBB /* Controllers */,
 				DFED9F1C1E452458000C1FBB /* Models */,
 				DFED9F1B1E452450000C1FBB /* Resources */,
-				DFED9F1A1E452448000C1FBB /* Controllers */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -110,6 +128,9 @@
 		DFED9F1A1E452448000C1FBB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DF21DD8E1E464312002D547C /* LibraryTableViewController.swift */,
+				DF1D76B01E474831000947E3 /* BookViewController.swift */,
+				DF1D76B11E474831000947E3 /* BookViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -128,6 +149,8 @@
 				DF21DD7D1E45DB4F002D547C /* Books.swift */,
 				DF21DD7F1E45E0B5002D547C /* Errors.swift */,
 				DF21DD811E45E23F002D547C /* JSONProcessing.swift */,
+				DF21DD891E460F8D002D547C /* Library.swift */,
+				DF1D76B41E475989000947E3 /* Tag.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -135,6 +158,7 @@
 		DFED9F1D1E4524F3000C1FBB /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				DF21DD941E46498D002D547C /* HackerBooks-BookIcon.png */,
 				DFED9F1E1E45250F000C1FBB /* HackerBooks-60@2x.png */,
 				DFED9F1F1E45250F000C1FBB /* HackerBooks-60@3x.png */,
 				DFED9F201E45250F000C1FBB /* HackerBooks-Spotlight-40@2x.png */,
@@ -209,8 +233,10 @@
 				DFED9F111E452428000C1FBB /* LaunchScreen.storyboard in Resources */,
 				DFED9F231E45250F000C1FBB /* HackerBooks-60@3x.png in Resources */,
 				DFED9F221E45250F000C1FBB /* HackerBooks-60@2x.png in Resources */,
+				DF1D76B31E474831000947E3 /* BookViewController.xib in Resources */,
 				DFED9F0E1E452428000C1FBB /* Assets.xcassets in Resources */,
 				DFED9F251E45250F000C1FBB /* HackerBooks-Spotlight-40@3x.png in Resources */,
+				DF21DD951E46498D002D547C /* HackerBooks-BookIcon.png in Resources */,
 				DFED9F091E452428000C1FBB /* Main.storyboard in Resources */,
 				DFED9F291E452540000C1FBB /* HackerBooks-Small@3x.png in Resources */,
 				DFED9F281E452540000C1FBB /* HackerBooks-Small@2x.png in Resources */,
@@ -226,11 +252,17 @@
 			files = (
 				DF21DD841E45E9CE002D547C /* FoundationExtensions.swift in Sources */,
 				DF21DD821E45E23F002D547C /* JSONProcessing.swift in Sources */,
+				DF21DD871E460E73002D547C /* AsyncData.swift in Sources */,
 				DF21DD7E1E45DB4F002D547C /* Books.swift in Sources */,
 				DF21DD801E45E0B5002D547C /* Errors.swift in Sources */,
+				DF21DD901E464312002D547C /* LibraryTableViewController.swift in Sources */,
 				DFED9F061E452428000C1FBB /* ViewController.swift in Sources */,
 				DFED9F0C1E452428000C1FBB /* HackerBooks.xcdatamodeld in Sources */,
+				DF21DD8A1E460F8D002D547C /* Library.swift in Sources */,
+				DF1D76B21E474831000947E3 /* BookViewController.swift in Sources */,
+				DF21DD881E460E73002D547C /* MultiDictionary.swift in Sources */,
 				DFED9F041E452428000C1FBB /* AppDelegate.swift in Sources */,
+				DF1D76B51E475989000947E3 /* Tag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
