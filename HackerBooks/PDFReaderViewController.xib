@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PDFReaderViewController" customModule="HackerBooks" customModuleProvider="target">
+            <connections>
+                <outlet property="pdfReader" destination="fAV-Ot-UrB" id="dzI-If-dy2"/>
+                <outlet property="spinner" destination="3aq-Ey-5rv" id="4ma-Dk-QPH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kKp-8V-j2M">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <navigationBar contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zI7-QT-bhu">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <items>
+                                <navigationItem title="Title" id="5A3-CC-dDv"/>
+                            </items>
+                        </navigationBar>
+                        <webView contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="fAV-Ot-UrB" userLabel="Pdf Reader">
+                            <rect key="frame" x="0.0" y="52" width="375" height="615"/>
+                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </webView>
+                    </subviews>
+                </stackView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3aq-Ey-5rv" userLabel="Activity Spinner">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3aq-Ey-5rv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2eb-3Z-epc"/>
+                <constraint firstAttribute="trailing" secondItem="kKp-8V-j2M" secondAttribute="trailing" id="8fI-0f-sHz"/>
+                <constraint firstItem="3aq-Ey-5rv" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="DIp-cn-jCc"/>
+                <constraint firstAttribute="bottom" secondItem="kKp-8V-j2M" secondAttribute="bottom" id="DxK-9U-o1Y"/>
+                <constraint firstItem="kKp-8V-j2M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PE6-Gm-aJ8"/>
+                <constraint firstItem="kKp-8V-j2M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fW0-I6-cRy"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

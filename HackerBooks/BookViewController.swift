@@ -40,7 +40,8 @@ class BookViewController: UIViewController {
     }
     
     //MARK: - Lifecycle
-    // Función que se ejecuta cuando la vista se va a estar visible.
+    // Función que se ejecuta cuando la vista se va a mostrar.
+    // En el ciclo de vida de la vista, esta función puede ejecutarse varias veces
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Se llama a la función que sincroniza la vista con el modelo
@@ -67,6 +68,8 @@ class BookViewController: UIViewController {
     //MARK: - Actions
     // Función que muestra el fichero PDF asociado al Book
     @IBAction func openPdf(_ sender: UIBarButtonItem) {
+        let pdfReaderViewController = PDFReaderViewController(bookPdfUrl: book.pdfUrl)
+        navigationController?.pushViewController(pdfReaderViewController, animated: true)
     }
     
     // Función palanca que activa/desactiva la propiedad Favorite del Book

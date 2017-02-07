@@ -16,6 +16,9 @@
 		DF1D76BF1E47AE1D000947E3 /* ic_favorite_border_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76B91E47AE1D000947E3 /* ic_favorite_border_3x.png */; };
 		DF1D76C01E47AE1D000947E3 /* ic_favorite_border.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76BA1E47AE1D000947E3 /* ic_favorite_border.png */; };
 		DF1D76C11E47AE1D000947E3 /* ic_favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76BB1E47AE1D000947E3 /* ic_favorite.png */; };
+		DF1D76C41E494923000947E3 /* PDFReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1D76C21E494923000947E3 /* PDFReaderViewController.swift */; };
+		DF1D76C51E494923000947E3 /* PDFReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76C31E494923000947E3 /* PDFReaderViewController.xib */; };
+		DF1D76C71E494E22000947E3 /* HackerBooks-PdfDefault.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DF1D76C61E494E22000947E3 /* HackerBooks-PdfDefault.pdf */; };
 		DF21DD7E1E45DB4F002D547C /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD7D1E45DB4F002D547C /* Books.swift */; };
 		DF21DD801E45E0B5002D547C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD7F1E45E0B5002D547C /* Errors.swift */; };
 		DF21DD821E45E23F002D547C /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD811E45E23F002D547C /* JSONProcessing.swift */; };
@@ -43,6 +46,9 @@
 		DF1D76B91E47AE1D000947E3 /* ic_favorite_border_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite_border_3x.png; sourceTree = "<group>"; };
 		DF1D76BA1E47AE1D000947E3 /* ic_favorite_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite_border.png; sourceTree = "<group>"; };
 		DF1D76BB1E47AE1D000947E3 /* ic_favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite.png; sourceTree = "<group>"; };
+		DF1D76C21E494923000947E3 /* PDFReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFReaderViewController.swift; sourceTree = "<group>"; };
+		DF1D76C31E494923000947E3 /* PDFReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PDFReaderViewController.xib; sourceTree = "<group>"; };
+		DF1D76C61E494E22000947E3 /* HackerBooks-PdfDefault.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "HackerBooks-PdfDefault.pdf"; sourceTree = "<group>"; };
 		DF21DD7D1E45DB4F002D547C /* Books.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		DF21DD7F1E45E0B5002D547C /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		DF21DD811E45E23F002D547C /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
@@ -131,6 +137,8 @@
 				DF21DD8E1E464312002D547C /* LibraryTableViewController.swift */,
 				DF1D76B01E474831000947E3 /* BookViewController.swift */,
 				DF1D76B11E474831000947E3 /* BookViewController.xib */,
+				DF1D76C21E494923000947E3 /* PDFReaderViewController.swift */,
+				DF1D76C31E494923000947E3 /* PDFReaderViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -138,6 +146,7 @@
 		DFED9F1B1E452450000C1FBB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DF1D76C61E494E22000947E3 /* HackerBooks-PdfDefault.pdf */,
 				DFED9F1D1E4524F3000C1FBB /* Icons */,
 			);
 			name = Resources;
@@ -237,8 +246,10 @@
 				DF1D76BD1E47AE1D000947E3 /* ic_favorite_3x.png in Resources */,
 				DF1D76BE1E47AE1D000947E3 /* ic_favorite_border_2x.png in Resources */,
 				DF1D76C11E47AE1D000947E3 /* ic_favorite.png in Resources */,
+				DF1D76C51E494923000947E3 /* PDFReaderViewController.xib in Resources */,
 				DF21DD951E46498D002D547C /* HackerBooks-BookIcon.png in Resources */,
 				DF1D76BF1E47AE1D000947E3 /* ic_favorite_border_3x.png in Resources */,
+				DF1D76C71E494E22000947E3 /* HackerBooks-PdfDefault.pdf in Resources */,
 				DFED9F091E452428000C1FBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +269,7 @@
 				DF21DD901E464312002D547C /* LibraryTableViewController.swift in Sources */,
 				DFED9F061E452428000C1FBB /* ViewController.swift in Sources */,
 				DFED9F0C1E452428000C1FBB /* HackerBooks.xcdatamodeld in Sources */,
+				DF1D76C41E494923000947E3 /* PDFReaderViewController.swift in Sources */,
 				DF21DD8A1E460F8D002D547C /* Library.swift in Sources */,
 				DF1D76B21E474831000947E3 /* BookViewController.swift in Sources */,
 				DF21DD881E460E73002D547C /* MultiDictionary.swift in Sources */,
