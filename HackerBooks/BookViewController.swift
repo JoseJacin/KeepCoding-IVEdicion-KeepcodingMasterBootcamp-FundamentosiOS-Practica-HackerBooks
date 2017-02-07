@@ -14,6 +14,8 @@ class BookViewController: UIViewController {
     //MARK: - Static properties
     private static let bookIcon : String = "HackerBooks-BookIcon.png"
     private static let defaultImage = Bundle.main.url(forResource: bookIcon)!
+    static let notificationName = Notification.Name(rawValue: "isFavorite")
+    static let favoriteKey = "FavoriteKey"
     
     //MARK: - Properties
     var book : Book // Propiedad Book (Libro)
@@ -54,6 +56,7 @@ class BookViewController: UIViewController {
         syncFavoriteIcon()
         // Se establece el título
         title = book.title
+        //viewWillAppear(true)
     }
     
     // Función que modifica el icono de Favorito (Activado/Desactivado) dependiendo de si el Book está marcado como Favorito o no
@@ -108,6 +111,7 @@ protocol BookViewControllerDelegate: class {
 // Función que se ejecuta cuando en LibraryTableViewController se ha seleccionado una celda
 extension BookViewController: LibraryTableViewControllerDelegate {
     func libraryTableViewController(_ sender: LibraryTableViewController, didSelectBook book: Book) {
+        // Se cambia el Book
         self.book = book
         // Se sincroniza la vista de Book para mostrar los datos del Book nuevo
         syncViewWithBook()
@@ -125,5 +129,20 @@ extension BookViewController: AsyncDataDelegate {
                           animations: {
                             self.bookImage.image = UIImage(data: sender.data)
         }, completion: nil)
+    }
+}
+
+//MARK: - Notifications
+extension BookViewController {
+    // Función que envía la notificación de que el Book se ha marcado/descamrcado como favorito
+    func notify (isFavorite book: Book) {
+        // Se "crea" (no se crea, ya existe una instancia por defecto, lo que se hace es pedir usar la instancia creada) una instancia del NotificationCenter
+        let notificationCenter = NotificationCenter.default
+        
+        // Se crea un objeto Notification
+        let notification = Notification(name: BookViewController.notificationName, object: self, userInfo: [BookViewController.favoriteKey : book])
+        
+        // Se manda el objeto Notification
+        notificationCenter.post(notification)
     }
 }

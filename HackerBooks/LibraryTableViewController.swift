@@ -15,6 +15,10 @@ class LibraryTableViewController: UITableViewController {
     let bookIcon : String = "HackerBooks-BookIcon.png"
     let cellId : String = "BookCell"
     
+    //MARK: - Static properties
+    static let notificationName = Notification.Name(rawValue: "BookDidChange")
+    static let bookKey = "BookKey"
+    
     //MARK: - Properties
     var library : Library
     weak var delegate: LibraryTableViewControllerDelegate? = nil
@@ -85,7 +89,11 @@ class LibraryTableViewController: UITableViewController {
         guard let selectedBook = library.book(forTag: tag(inSection: indexPath.section), at: indexPath.row) else {
             return
         }
+        
+        // Se avisa al Delegado
         delegate?.libraryTableViewController(self, didSelectBook: selectedBook)
+        // Se manda una notificación
+        notify(bookChanged: selectedBook)
     }
     
     //MARK: - Utils
@@ -127,5 +135,20 @@ extension LibraryTableViewController: BookViewControllerDelegate {
         
         // Se recarga la información de la tabla para que se actualice la sección Favorites
         self.tableView.reloadData()
+    }
+}
+
+//MARK: - Notifications
+extension LibraryTableViewController {
+    // Función que envía la notificación de que el Book ha cambiado
+    func notify (bookChanged book: Book) {
+        // Se "crea" (no se crea, ya existe una instancia por defecto, lo que se hace es pedir usar la instancia creada) una instancia del NotificationCenter
+        let notificationCenter = NotificationCenter.default
+        
+        // Se crea un objeto Notification
+        let notification = Notification(name: LibraryTableViewController.notificationName, object: self, userInfo: [LibraryTableViewController.bookKey : book])
+        
+        // Se manda el objeto Notification
+        notificationCenter.post(notification)
     }
 }
