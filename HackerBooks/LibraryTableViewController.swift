@@ -46,6 +46,8 @@ class LibraryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = navigationTitle
+        let bookCellNib = UINib(nibName: "BookTableViewCell", bundle: nil)
+        tableView.register(bookCellNib, forCellReuseIdentifier: BookTableViewCell.cellId)
     }
 
     // MARK: - Table view data source
@@ -73,13 +75,19 @@ class LibraryTableViewController: UITableViewController {
         // Se averigua cuál es el Book iterado
         let book = library.book(forTag: tag(inSection: indexPath.section), at: indexPath.row)
         // Se crea la celda. Si ya existe la celda, se reutiliza, sino, se crea desde cero
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+        let cell: BookTableViewCell = tableView.dequeueReusableCell(withIdentifier: BookTableViewCell.cellId) as? BookTableViewCell ?? BookTableViewCell()
         
         // Se configura la celda recién creada
+        cell.setCoverViewData(with: AsyncData(url: (book?.imageUrl)!, defaultData: defaultBookImageData))
+        cell.bookTitleLabel?.text = book?.title
+        cell.bookAuthorsLabel?.text = book?.authorsDescription
+        cell.BookTagsLabel?.text = book?.tagsDescription
+        
+        /*
         cell.imageView?.image = UIImage(named: bookIcon) // Se establece la imagen por defecto de la celda
         cell.textLabel?.text = book?.title // Se establece el título de la celda con el título del Book
         cell.detailTextLabel?.text = book?.authorsDescription // Se establece el detalle de la celda con la descripción de los Authors del Book
-        
+        */
         // Se retorna la celda recién configurada
         return cell
     }
@@ -94,6 +102,10 @@ class LibraryTableViewController: UITableViewController {
         delegate?.libraryTableViewController(self, didSelectBook: selectedBook)
         // Se manda una notificación
         notify(bookChanged: selectedBook)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return BookTableViewCell.cellHeight
     }
     
     //MARK: - Utils

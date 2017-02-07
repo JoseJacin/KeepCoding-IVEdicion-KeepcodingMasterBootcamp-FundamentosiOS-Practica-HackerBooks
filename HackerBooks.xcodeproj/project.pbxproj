@@ -28,6 +28,8 @@
 		DF21DD8A1E460F8D002D547C /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD891E460F8D002D547C /* Library.swift */; };
 		DF21DD901E464312002D547C /* LibraryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21DD8E1E464312002D547C /* LibraryTableViewController.swift */; };
 		DF21DD951E46498D002D547C /* HackerBooks-BookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF21DD941E46498D002D547C /* HackerBooks-BookIcon.png */; };
+		DF5843901E4A435C00AE8487 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF58438E1E4A435C00AE8487 /* BookTableViewCell.swift */; };
+		DF5843911E4A435C00AE8487 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF58438F1E4A435C00AE8487 /* BookTableViewCell.xib */; };
 		DFED9F041E452428000C1FBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED9F031E452428000C1FBB /* AppDelegate.swift */; };
 		DFED9F061E452428000C1FBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED9F051E452428000C1FBB /* ViewController.swift */; };
 		DFED9F091E452428000C1FBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFED9F071E452428000C1FBB /* Main.storyboard */; };
@@ -58,6 +60,8 @@
 		DF21DD891E460F8D002D547C /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		DF21DD8E1E464312002D547C /* LibraryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewController.swift; sourceTree = "<group>"; };
 		DF21DD941E46498D002D547C /* HackerBooks-BookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HackerBooks-BookIcon.png"; sourceTree = "<group>"; };
+		DF58438E1E4A435C00AE8487 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		DF58438F1E4A435C00AE8487 /* BookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		DFED9F001E452427000C1FBB /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFED9F031E452428000C1FBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFED9F051E452428000C1FBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF58438B1E4A42EE00AE8487 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DF58438E1E4A435C00AE8487 /* BookTableViewCell.swift */,
+				DF58438F1E4A435C00AE8487 /* BookTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		DFED9EF71E452427000C1FBB = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +137,7 @@
 		DFED9F191E452440000C1FBB /* App */ = {
 			isa = PBXGroup;
 			children = (
+				DF58438B1E4A42EE00AE8487 /* Views */,
 				DFED9F1A1E452448000C1FBB /* Controllers */,
 				DFED9F1C1E452458000C1FBB /* Models */,
 				DFED9F1B1E452450000C1FBB /* Resources */,
@@ -244,6 +258,7 @@
 				DF1D76C01E47AE1D000947E3 /* ic_favorite_border.png in Resources */,
 				DF1D76BC1E47AE1D000947E3 /* ic_favorite_2x.png in Resources */,
 				DF1D76BD1E47AE1D000947E3 /* ic_favorite_3x.png in Resources */,
+				DF5843911E4A435C00AE8487 /* BookTableViewCell.xib in Resources */,
 				DF1D76BE1E47AE1D000947E3 /* ic_favorite_border_2x.png in Resources */,
 				DF1D76C11E47AE1D000947E3 /* ic_favorite.png in Resources */,
 				DF1D76C51E494923000947E3 /* PDFReaderViewController.xib in Resources */,
@@ -274,6 +289,7 @@
 				DF1D76B21E474831000947E3 /* BookViewController.swift in Sources */,
 				DF21DD881E460E73002D547C /* MultiDictionary.swift in Sources */,
 				DFED9F041E452428000C1FBB /* AppDelegate.swift in Sources */,
+				DF5843901E4A435C00AE8487 /* BookTableViewCell.swift in Sources */,
 				DF1D76B51E475989000947E3 /* Tag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

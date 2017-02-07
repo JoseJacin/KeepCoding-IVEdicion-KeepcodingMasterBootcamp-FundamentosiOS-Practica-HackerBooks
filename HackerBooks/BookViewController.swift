@@ -24,7 +24,7 @@ class BookViewController: UIViewController {
     
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var favorite: UIBarButtonItem!
-    
+    @IBOutlet weak var tags: UILabel!
     
     //MARK: - Initialization
     // Inicializador designado (Si no se indica que es el de conveniencia, es el designado)
@@ -57,7 +57,7 @@ class BookViewController: UIViewController {
         syncFavoriteIcon()
         // Se establece el título
         title = book.title
-        //viewWillAppear(true)
+        tags.text = book.tagsDescription
     }
     
     // Función que modifica el icono de Favorito (Activado/Desactivado) dependiendo de si el Book está marcado como Favorito o no
@@ -124,6 +124,7 @@ extension BookViewController: LibraryTableViewControllerDelegate {
 //MARK: AsyncDataDelegate
 // Función que se ejecuta cuando se ha finalizado la descarga de la imagen
 extension BookViewController: AsyncDataDelegate {
+    // Función que actualiza la imagen del Book (Portada) cuando ha terminado su descarga
     func asyncData(_ sender: AsyncData, didEndLoadingFrom url: URL) {
         // Se actualiza la imagen del Book (Portada)
         UIView.transition(with: bookImage,

@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="bookImage" destination="Oyt-fi-4ys" id="UNt-Cs-dCR"/>
                 <outlet property="favorite" destination="enu-qV-OWk" id="VJP-l6-n6c"/>
+                <outlet property="tags" destination="iiV-wl-NNj" id="sOR-GV-Ds5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,14 +34,25 @@
                             </items>
                         </navigationBar>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Oyt-fi-4ys" userLabel="Book Image">
-                            <rect key="frame" x="0.0" y="52" width="375" height="534.5"/>
+                            <rect key="frame" x="0.0" y="52" width="375" height="541.5"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiV-wl-NNj" userLabel="Tags">
-                            <rect key="frame" x="0.0" y="594.5" width="375" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSH-fU-7jP" userLabel="Tags Stack View">
+                            <rect key="frame" x="0.0" y="601.5" width="375" height="13.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags: " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="187.5" translatesAutoresizingMaskIntoConstraints="NO" id="xdJ-lv-V53">
+                                    <rect key="frame" x="0.0" y="0.0" width="29" height="13.5"/>
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="11"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Tags" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="187.5" translatesAutoresizingMaskIntoConstraints="NO" id="iiV-wl-NNj" userLabel="Tags">
+                                    <rect key="frame" x="29" y="0.0" width="346" height="13.5"/>
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygL-l0-SXU">
                             <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                             <items>
