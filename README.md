@@ -35,13 +35,14 @@ El procedimiento que se realiza cuando se cambia un libro es que *LibraryTableVi
 Tal y como se encuentra actualmente la aplicación, es susceptible de diversas mejoras:
 
 * Como toda aplicación que muestra una gran cantidad de datos, sería recomendable que tenga un filtro personalizado, que permita filtrar por varios valores, como por el título, los autores, etiquetas (una o varias), valoraciones (estrellas), ... 
-* Permitir valorar los libros de una forma similar a como se realiza actualmente en la App música mediante cinco estrellas.
-* Permitir que los libros se puedan añadir a listas personalizadas (se puede acceder a esta funcionalidad desde un gesto Swipe o desde el detalle del libro.
-* Permitir que se pueda hacer favorito mediante el gesto Swipe
-* Permitir a los usuarios tomar agregar marcadores o tomar notas sobre el libro
+* Permitir valorar los libros de una forma similar a como se realiza actualmente en la App música (la que viene preinslatada en el iPhone y iPad)  mediante cinco estrellas.
+* Permitir que los libros se puedan añadir a listas personalizadas (se puede acceder a esta funcionalidad desde un gesto Swipe o desde el detalle del libro).
+* Permitir que se pueda hacer favorito mediante el gesto Swipe.
+* Permitir a los usuarios tomar agregar marcadores o tomar notas sobre el libro.
 * Permitir hacerse usuario para poder usar una función social como por ejemplo poder realizar comentarios, recomendar libros, seguir a otros usuarios, ver qué han leído o qué están leyendo, gustos, ...
-* Permitir continuidad (previo pago ya que sería una función premium) para que favoritos, marcadores, notas, preferencias, se sincronicen en todos los dispositivos en los que se loguee el usuario en cualquier momento, es decir (continuidad)
 * Permitir la lectura de otros formatos de libro, permitiendo de esta forma, poder modificar preferencias como el tipo o tamaño de letra, fondo, ...
+* Permitir continuidad (previo pago ya que sería una función premium) para que favoritos, marcadores, notas, preferencias, ... se sincronicen en todos los dispositivos en los que se loguee el usuario en cualquier momento.
+
 
 ## b. ¿Qué otras versiones se te ocurren?
 El diseño de la aplicación es fácilmente adaptable para mostrar una gran coleccon de elementos que se encuentren en una base de datos. Actualmente (previa modificación del modelo y la modificación o ajustes de algunas funcionalidades), podría adaptarse para ser una galería de arte en la que se puede ver el título, autor, tags y la imagen de la obra. También permitiría abrir Wikipedia, y realizar pinch&zoom para ampliar la imagen de la misma.
@@ -49,6 +50,8 @@ El diseño de la aplicación es fácilmente adaptable para mostrar una gran cole
 ## c. ¿Cómo podrías monetizar con HackerBooks? 
 Algunas funciones con las que se podría obtener benefício son:
 
-* Acceso a libros premium. Previo pago, se permitiría acceder a libros Premium (Lanzamientos, Best Seller, ...). Si no se paga, se tendría una especie de demostración en la que solo se pueda ver el principio del mismo.
-* Descarga de los libros para poder verlos sin conexión
-* Continuidad, es decir, poder tener la misma información (favoritos, marcadores, notas, preferencias, ...)
+* Descarga de los libros para poder verlos sin conexión.
+* Acceso a libros premium. Se permitiría acceder a libros Premium (Lanzamientos, Best Seller, ...). Si no se paga, se tendría una especie de demostración en la que solo se pueda ver el principio del mismo.
+* Continuidad, es decir, poder tener la misma información (favoritos, marcadores, notas, preferencias, ...).
+* Permitir la compra de los libros en formato físico. De esta forma se podría sacar un pequeño porcentaje de la venta por ser el intermediario.
+
