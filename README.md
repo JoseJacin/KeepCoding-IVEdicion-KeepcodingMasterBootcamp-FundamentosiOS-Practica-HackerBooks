@@ -20,7 +20,7 @@ En cuanto a posibles alternativas, dado de la clase *Book* no pertenece a *Libra
 ##¿Por qué no es una mala opción usar el método *reloadData* de *UITableView*? ¿Hay una forma alternativa? ¿Cuándro crees que vale la pena usarlo?
 Las operaciones que más recursos consumen son las de descarga de datos tales como imágenes, vídeos, pdf, ... En cambio, una vez ya se han descargado, tan solo hay que cargarlos en la tabla desde la caché de la aplicación con *reloadData*.
 
-Otra alternativa sería extender el método reloadData para que solo recargue la celda en cuestión, pero dado que es un método relativamente complicado no sería necesaria su implementación a no ser que sea extrictamente necesario.
+Otra alternativa sería extender el método reloadData para que solo recargue la celda en cuestión, pero dado que es un método relativamente complicado (al menos eso pienso) no sería necesaria su implementación a no ser que sea extrictamente necesario.
 Una segunda alternativa sería controlar las celdas que se están mostrando en el momento y solo recargar dichas celdas.
 
 ##¿Cómo cambiaste el PDF del *PDFReaderViewController* cuando el usuario cambió el libro actual en el *LibraryTableViewController*?
